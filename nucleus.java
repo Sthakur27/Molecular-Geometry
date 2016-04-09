@@ -58,8 +58,12 @@ public class nucleus{
         mybonds.add(new bond(0,0,-distance,radius/2,false));
       }
       if(possibleBonds==8){
-        
-        
+           float ndistance =(float) Math.sqrt(distance*distance/2);
+           for (float i = 0; i < 2*Math.PI - 1; i += Math.PI/2)
+           {
+               mybonds.add(new bond(ndistance*(float)Math.cos(i), ndistance*(float)Math.sin(i), -ndistance ,radius/2,false));
+               mybonds.add(new bond(ndistance*(float)Math.cos(i + Math.PI/4),ndistance*(float)Math.sin(i + Math.PI/4),ndistance, radius/2, false));
+           }  
       }
   }
   public void createBonds(){
@@ -104,6 +108,12 @@ public class nucleus{
             mybonds.get(i).repel();
         }
     }
+  }
+  public void create(){
+     this.setUp(); this.createBonds(); this.unbondedRepel(); this.createBondAngles(); this.createDipole();
+  }
+  public void update(){
+    this.setUp(); this.createBonds(); this.unbondedRepel(); this.createBondAngles(); this.createDipole();
   }
   public void reset(int a, int b){
     numOfBonds=a;possibleBonds=b; this.setUp(); this.createBonds(); this.unbondedRepel(); this.createBondAngles(); this.createDipole();

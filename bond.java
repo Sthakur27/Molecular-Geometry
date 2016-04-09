@@ -57,7 +57,7 @@ public class bond{
   }
   
   
-  //theta phi approach
+  /*//theta phi approach
   public void influence2(ArrayList<bond> unbondedPairs){
       float dtheta=0;float dphi=0;   float[] unbspher; float temp;
       DecimalFormat df= new DecimalFormat("#.###");
@@ -85,5 +85,5 @@ public class bond{
       thisspher[1]+=dtheta; thisspher[2]+=dphi;
       thisspher=Coord.toCart(thisspher);
       //this.x=thisspher[0]; this.y=thisspher[1]; this.z=thisspher[2];
-  }
+  }*/
 }
